@@ -14,11 +14,13 @@ public class Game extends JPanel implements MouseMotionListener
      private BufferedImage cursorImg;
      private GameListener gameListener;
      private Rectangle cursorRectangle;
-//     private GameThread gameThread;
+     private GameThread gameThread;
+     private boolean isGameFinished;
+     private BufferedImage gameResultImage;
     public Game() 
     {
         initPanel();
-//        gameThread.start();
+        gameThread.start();
     }
    
     private void initPanel() 
@@ -32,7 +34,7 @@ public class Game extends JPanel implements MouseMotionListener
         cursorRectangle = new Rectangle();
         cursorRectangle.setSize(cursorImg.getWidth(null), cursorImg.getHeight(null));
         cursorRectangle.setLocation(-cursorImg.getWidth(null), -cursorImg.getHeight(null));
-//        gameThread = new GameThread();
+        gameThread = new GameThread();
     }
     
     
@@ -51,39 +53,59 @@ public class Game extends JPanel implements MouseMotionListener
         g2D.drawImage(cursorImg, this.cursorRectangle.x, this.cursorRectangle.y, this);
     }
     @Override
-    public void mouseDragged(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void mouseDragged(MouseEvent e)
+    {
+        
     }
 
     @Override
-    public void mouseMoved(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void mouseMoved(MouseEvent e) 
+    {
+        cursorRectangle.x = e.getPoint().x - cursorRectangle.width / 2;
+        cursorRectangle.y = e.getPoint().y - cursorRectangle.height / 2;
+        repaint();
     }
 
-//    public class GameThread implements Runnable 
-//    {
-//        private Thread thread;
-//        public GameThread()
-//        {
-//        }
-//        
-//        public void start() 
-//        {
-//            reset();
-//            thread = new Thread(this);
-//            thread.start();
-//        }
-//
+    public class GameThread implements Runnable 
+    {
+        private Thread thread;
+        public GameThread()
+        {
+        }
+        
+        public void start() 
+        {
+            reset();
+            thread = new Thread(this);
+            thread.start();
+        }
+
 //        @Override
 //        public void run()
 //        {
-//            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//            while (!isGameFinished) {
+//                try {
+//                    int killedDucks=0;
+//                    if (killedDucks > 5) {
+//                        System.out.println("YOU WIN");
+//                        
+//                        repaint();
+//                    } else {
+//                        System.out.println("YOU LOSE");
+//                        gameResultImage = Resources.getImage("/images/gameover.png");
+//                        repaint();
+//                    }
+//                    isGameFinished = true;
+//                } catch (InterruptedException ex) {
+//                    System.out.println("an error occured during game thread execution");
+//                }
+//            }
 //        }
-//
-//        private void reset() 
-//        {
-//            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//        }
-//    }
+
+        private void reset() 
+        {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+    }
     
 }

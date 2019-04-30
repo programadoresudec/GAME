@@ -10,7 +10,6 @@ public class MainFrame extends JFrame implements GameListener
     private static final Dimension FRAMESIZE = new Dimension(1280, 720);
     private Menu menuPanel;
     private Game gamePanel;
-    private GoBackToMenu goBackAction;
     public MainFrame()
     {
         initFrame();
@@ -19,7 +18,7 @@ public class MainFrame extends JFrame implements GameListener
     @Override
     public void gameIsFinished() 
     {
-        goBackAction.setEnabled(true);
+       
     }
 
     private void initFrame()
@@ -45,8 +44,6 @@ public class MainFrame extends JFrame implements GameListener
                     gamePanel = new Game();
                     initPanel(gamePanel, false);
                     gamePanel.addListener(MainFrame.this);
-                    goBackAction.setPanel(gamePanel);
-                    goBackAction.setEnabled(false);
                     swapPanel(menuPanel, gamePanel);
                 } 
                 else if (hitPoint.x > 90 && hitPoint.x < 385 && hitPoint.y > 587 && hitPoint.y < 645) 
@@ -68,38 +65,6 @@ public class MainFrame extends JFrame implements GameListener
     {
         pTo.setVisible(true);
         pFrom.setVisible(false);
-    }
-    
-     public class GoBackToMenu extends AbstractAction
-     {
-
-        private JPanel panel;
-
-        public GoBackToMenu()
-        {
-        }
-
-        public void setPanel(JPanel pPanel)
-        {
-            this.panel = pPanel;
-        }
-
-        @Override
-        public void actionPerformed(ActionEvent e) 
-        {
-            if (panel != null)
-            {
-                if (panel.equals(gamePanel))
-                {
-                    swapPanel(panel, menuPanel);
-                    panel.invalidate();
-                    panel.removeAll();
-                    MainFrame.this.getContentPane().remove(panel);
-                    MainFrame.this.invalidate();
-                    MainFrame.this.validate();
-                }
-            }
-        }
     }
 }
 

@@ -14,11 +14,11 @@ public class Game extends JPanel implements MouseMotionListener
      private BufferedImage cursorImg;
      private GameListener gameListener;
      private Rectangle cursorRectangle;
-     private GameThread gameThread;
+//     private GameThread gameThread;
     public Game() 
     {
         initPanel();
-        gameThread.start();
+//        gameThread.start();
     }
    
     private void initPanel() 
@@ -32,7 +32,7 @@ public class Game extends JPanel implements MouseMotionListener
         cursorRectangle = new Rectangle();
         cursorRectangle.setSize(cursorImg.getWidth(null), cursorImg.getHeight(null));
         cursorRectangle.setLocation(-cursorImg.getWidth(null), -cursorImg.getHeight(null));
-        gameThread = new GameThread();
+//        gameThread = new GameThread();
     }
     
     
@@ -60,30 +60,30 @@ public class Game extends JPanel implements MouseMotionListener
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public class GameThread implements Runnable 
-    {
-        private Thread thread;
-        public GameThread()
-        {
-        }
-        
-        public void start() 
-        {
-            reset();
-            thread = new Thread(this);
-            thread.start();
-        }
-
-        @Override
-        public void run()
-        {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
-
-        private void reset() 
-        {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
-    }
+//    public class GameThread implements Runnable 
+//    {
+//        private Thread thread;
+//        public GameThread()
+//        {
+//        }
+//        
+//        public void start() 
+//        {
+//            reset();
+//            thread = new Thread(this);
+//            thread.start();
+//        }
+//
+//        @Override
+//        public void run()
+//        {
+//            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        }
+//
+//        private void reset() 
+//        {
+//            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        }
+//    }
     
 }

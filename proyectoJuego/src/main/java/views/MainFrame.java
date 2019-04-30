@@ -4,9 +4,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import controllers.GameListener;
 import assets.Resources;
-/**
- * @author Vittorio Polverino
- */
+
 public class MainFrame extends JFrame implements GameListener 
 {
     private static final Dimension FRAMESIZE = new Dimension(1280, 720);
@@ -36,14 +34,13 @@ public class MainFrame extends JFrame implements GameListener
         this.setLocationRelativeTo(null);
         menuPanel = new Menu();
         initPanel(menuPanel, true);
-        
         menuPanel.addMouseListener(new MouseAdapter() 
         {
             @Override
             public void mousePressed(MouseEvent e)
             {
                 Point hitPoint = e.getPoint();
-                if (hitPoint.x > 100 && hitPoint.x < 200 && hitPoint.y > 100 && hitPoint.y < 200) 
+                if (hitPoint.x > 120 && hitPoint.x < 430 && hitPoint.y > 440 && hitPoint.y < 490) 
                 {
                     gamePanel = new Game();
                     initPanel(gamePanel, false);
@@ -52,7 +49,7 @@ public class MainFrame extends JFrame implements GameListener
                     goBackAction.setEnabled(false);
                     swapPanel(menuPanel, gamePanel);
                 } 
-                else if (hitPoint.x > 100 && hitPoint.x < 350 && hitPoint.y > 100 && hitPoint.y < 400) 
+                else if (hitPoint.x > 90 && hitPoint.x < 385 && hitPoint.y > 587 && hitPoint.y < 645) 
                 {
                     System.exit(0);
                 }

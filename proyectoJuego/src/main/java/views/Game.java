@@ -16,6 +16,7 @@ public class Game extends JPanel implements MouseMotionListener
      private Rectangle cursorRectangle;
      private GameThread gameThread;
      private boolean isGameFinished;
+     private String nombreHilo;
      private BufferedImage gameResultImage;
     public Game() 
     {
@@ -75,36 +76,26 @@ public class Game extends JPanel implements MouseMotionListener
         
         public void start() 
         {
-            reset();
             thread = new Thread(this);
             thread.start();
         }
 
-//        @Override
-//        public void run()
-//        {
-//            while (!isGameFinished) {
-//                try {
-//                    int killedDucks=0;
-//                    if (killedDucks > 5) {
-//                        System.out.println("YOU WIN");
-//                        
-//                        repaint();
-//                    } else {
-//                        System.out.println("YOU LOSE");
-//                        gameResultImage = Resources.getImage("/images/gameover.png");
-//                        repaint();
-//                    }
-//                    isGameFinished = true;
-//                } catch (InterruptedException ex) {
-//                    System.out.println("an error occured during game thread execution");
-//                }
-//            }
-//        }
-
-        private void reset() 
+        @Override
+        public void run()
         {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+           System.out.println("Comenzando "+nombreHilo);
+            try
+            {
+                for (int contar=0; contar<10; contar++) 
+                {
+                    Thread.sleep(400);
+                    System.out.println("En "+nombreHilo+", el recuento "+contar);
+                }
+            }catch (InterruptedException exc)
+            {
+                System.out.println(nombreHilo + "Interrumpido.");
+            }
+            System.out.println("Terminando "+nombreHilo);
         }
     }
     

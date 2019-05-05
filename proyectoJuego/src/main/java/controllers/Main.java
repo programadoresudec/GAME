@@ -4,7 +4,9 @@ import views.MainFrame;
 
 /**
  *
- * @author ander
+ * @author Diego Arturo Parra Molina
+ * Anderson rincon sanabria
+ * Anderson Enrique Nevao Mendoza
  */
 public class Main 
 {

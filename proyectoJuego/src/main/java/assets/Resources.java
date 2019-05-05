@@ -10,10 +10,7 @@ import java.util.jar.JarFile;
 import javax.imageio.ImageIO;
 import assets.Sound;
 
-/**
- * 
- * @author Vittorio Polverino
- */
+
 
 public class Resources {
 

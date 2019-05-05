@@ -1,9 +1,4 @@
 package assets;
-
-/**
- * 
- * @author Vittorio Polverino
- */
 public class SoundException extends Exception {
 
     SoundException(String string) {

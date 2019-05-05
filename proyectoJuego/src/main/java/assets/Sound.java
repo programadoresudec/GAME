@@ -6,10 +6,6 @@ import java.net.URL;
 import java.util.HashMap;
 import javax.sound.sampled.*;
 
-/**
- * 
- * @author Vittorio Polverino
- */
 
 public class Sound {
 

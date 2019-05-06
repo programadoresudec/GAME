@@ -1,6 +1,11 @@
 
 package assets;
+<<<<<<< HEAD
+
+// resources for the url of Image
+=======
 //these are imports
+>>>>>>> 3f343892e7e39ee817b1e32e338c1d26339570ba
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.URISyntaxException;
@@ -13,11 +18,18 @@ import assets.Sound;
 
 //this is the kind of resources
 
-public class Resources {
+public class Resources 
+{
 
     static Class source = Resources.class;
+<<<<<<< HEAD
+
+    private Resources()
+    {
+=======
 //this is a builder
     private Resources() {
+>>>>>>> 3f343892e7e39ee817b1e32e338c1d26339570ba
     }
 //this is a set of source
     public static void setSourceClass(Class source) {

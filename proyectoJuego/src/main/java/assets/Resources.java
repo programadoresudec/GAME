@@ -56,7 +56,7 @@ public class Resources {
     public static String getText(String path) {
 
         StringBuilder builder = new StringBuilder();
-this is a exception
+//this is a exception
         try {
             InputStream byteStream = getResourceAsStream(path);
             InputStreamReader txtStream = new InputStreamReader(byteStream, "ISO-8859-1");
@@ -70,7 +70,7 @@ this is a exception
             ex.printStackTrace(System.err);
             System.exit(-1);
         }
-
+//return a builder
         return builder.toString();
     }
 

@@ -2,6 +2,8 @@ package views;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import assets.Sound;
+import assets.SoundException;
 import controllers.GameListener;
 import assets.Resources;
 import java.awt.image.*;
@@ -12,8 +14,10 @@ public class Game extends JPanel implements MouseMotionListener
      private BufferedImage cursorImg;
      private Rectangle cursorRectangle;
      private GameThread gameThread;
-   
+     private GameListener gameListener;
+     private boolean isGameFinished;
      private String nombreHilo;
+     private BufferedImage gameResultImage;
     
     public Game() 
     {
@@ -38,6 +42,7 @@ public class Game extends JPanel implements MouseMotionListener
     
      public void addListener(GameListener pListener) 
      {
+         gameListener = pListener;
          GameListener gameListener = pListener;
      }
      

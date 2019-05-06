@@ -22,14 +22,14 @@ public class Resources
 {
 
     static Class source = Resources.class;
-<<<<<<< HEAD
+
 
     private Resources()
     {
-=======
+
 //this is a builder
     private Resources() {
->>>>>>> 3f343892e7e39ee817b1e32e338c1d26339570ba
+
     }
 //this is a set of source
     public static void setSourceClass(Class source) {

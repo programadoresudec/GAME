@@ -1,6 +1,7 @@
 
 package assets;
 
+// resources for the url of Image
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.URISyntaxException;
@@ -13,11 +14,13 @@ import assets.Sound;
 
 //it is class of resources
 
-public class Resources {
+public class Resources 
+{
 
     static Class source = Resources.class;
 
-    private Resources() {
+    private Resources()
+    {
     }
 
     public static void setSourceClass(Class source) {

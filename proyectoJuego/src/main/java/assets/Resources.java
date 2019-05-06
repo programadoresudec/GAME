@@ -1,3 +1,4 @@
+
 package assets;
 
 import java.awt.image.BufferedImage;
@@ -10,7 +11,7 @@ import java.util.jar.JarFile;
 import javax.imageio.ImageIO;
 import assets.Sound;
 
-
+//it is class of resources
 
 public class Resources {
 

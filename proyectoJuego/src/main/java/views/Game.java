@@ -4,20 +4,17 @@ import java.awt.event.*;
 import javax.swing.*;
 import controllers.GameListener;
 import assets.Resources;
-import assets.Sound;
-import assets.SoundException;
 import java.awt.image.*;
 public class Game extends JPanel implements MouseMotionListener
 {
      private static final Cursor CURSOR = Toolkit.getDefaultToolkit().createCustomCursor(new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB), new Point(), "null");
      private BufferedImage backgroundImg;
      private BufferedImage cursorImg;
-     private GameListener gameListener;
      private Rectangle cursorRectangle;
      private GameThread gameThread;
-     private boolean isGameFinished;
+   
      private String nombreHilo;
-     private BufferedImage gameResultImage;
+    
     public Game() 
     {
         initPanel();
@@ -41,7 +38,7 @@ public class Game extends JPanel implements MouseMotionListener
     
      public void addListener(GameListener pListener) 
      {
-        gameListener = pListener;
+         GameListener gameListener = pListener;
      }
      
      @Override

@@ -61,6 +61,7 @@ public class MainFrame extends JFrame implements GameListener
         this.add(pPanel);
     }
     
+    // method to exchange the panel
     private void swapPanel(JPanel pFrom, JPanel pTo) 
     {
         pTo.setVisible(true);

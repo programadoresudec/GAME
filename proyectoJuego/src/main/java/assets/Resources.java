@@ -1,6 +1,6 @@
 
 package assets;
-
+//these are imports
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.URISyntaxException;

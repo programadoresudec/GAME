@@ -4,12 +4,12 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.*;
 import javax.swing.*;
-
+//this is class de menu with an inheritance jpanel
 public class Menu extends JPanel
 {
      private static final Cursor HAND_CURSOR = new Cursor(Cursor.HAND_CURSOR);
     private BufferedImage backgroundImg;
-
+//this is builder
     public Menu() {
         init();
     }
@@ -19,7 +19,7 @@ public class Menu extends JPanel
         backgroundImg = Resources.getImage("/images/menuBackground.png");
         this.setCursor(HAND_CURSOR);
     }
-
+//written method
     @Override
     protected void paintComponent(Graphics g) 
     {

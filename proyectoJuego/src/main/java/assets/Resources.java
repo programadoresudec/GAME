@@ -1,7 +1,11 @@
 
 package assets;
+<<<<<<< HEAD
 
 // resources for the url of Image
+=======
+//these are imports
+>>>>>>> 3f343892e7e39ee817b1e32e338c1d26339570ba
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.URISyntaxException;
@@ -12,29 +16,36 @@ import java.util.jar.JarFile;
 import javax.imageio.ImageIO;
 import assets.Sound;
 
-//it is class of resources
+//this is the kind of resources
 
 public class Resources 
 {
 
     static Class source = Resources.class;
+<<<<<<< HEAD
 
     private Resources()
     {
+=======
+//this is a builder
+    private Resources() {
+>>>>>>> 3f343892e7e39ee817b1e32e338c1d26339570ba
     }
-
+//this is a set of source
     public static void setSourceClass(Class source) {
         Resources.source = source;
     }
-
+//this is a get of image
     public static BufferedImage getImage(String path) {
         BufferedImage image = null;
+       //this is a exception
         try {
             image = ImageIO.read(getResource(path));
         } catch (IOException ex) {
             ex.printStackTrace(System.err);
             System.exit(-1);
         }
+        //return a image
         return image;
     }
 

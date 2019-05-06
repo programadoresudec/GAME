@@ -6,14 +6,14 @@ import java.net.URL;
 import java.util.HashMap;
 import javax.sound.sampled.*;
 
-
+//this is class sound
 public class Sound {
-
+//this is a atributes
     private static final Line.Info INFO = new Line.Info(Clip.class);
     private static HashMap<String, Sound> map;
     private URL soundUrl;
     private Clip readyClip;
-
+//this is a builder
     public Sound(String path) throws SoundException, MalformedURLException {
         this(new URL(path));
     }
@@ -29,7 +29,7 @@ public class Sound {
     public Clip play() {
         return play(1);
     }
-
+//this is loop
     public Clip loop() {
         return play(-1);
     }

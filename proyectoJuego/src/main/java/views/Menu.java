@@ -16,6 +16,7 @@ public class Menu extends JPanel
 
     private void init() {
         this.setLayout(null);
+        //we add image
         backgroundImg = Resources.getImage("/images/menuBackground.png");
         this.setCursor(HAND_CURSOR);
     }

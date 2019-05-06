@@ -4,7 +4,7 @@ import views.MainFrame;
 
 /**
  *
- * @author Diego Arturo Parra Molina
+ * Diego Arturo Parra Molina
  * Anderson rincon sanabria
  * Anderson Enrique Nevao Mendoza
  */

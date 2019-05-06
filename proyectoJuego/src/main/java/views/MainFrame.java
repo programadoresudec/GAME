@@ -54,6 +54,7 @@ public class MainFrame extends JFrame implements GameListener
         });
     }
     
+    // method to show and hide the panel
     private void initPanel(JPanel pPanel, boolean pValue) 
     {
         pPanel.setSize(FRAMESIZE);

@@ -18,7 +18,13 @@ public class Sound {
         this(new URL(path));
     }
 
-   
+    public Sound(URL url) throws SoundException {
+        if (url == null) {
+            throw new SoundException("Cannot read null url path");
+        }
+        this.soundUrl = url;
+        this.readyClip = this.getNewClip();
+    }
 
     public Clip play() {
         return play(1);

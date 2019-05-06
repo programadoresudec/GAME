@@ -37,9 +37,10 @@ public class Resources {
         return image;
     }
 
-
+//this is a class sound
     public static Sound getSound(String path) {
         Sound sound = null;
+        //this is a exception
         try {
             //System.out.println("\n\n\n\n" + getResource(path).toURI() + "\n\n\n\n");
             //File file = new File(getResource(path).toURI());
@@ -48,13 +49,14 @@ public class Resources {
             ex.printStackTrace(System.err);
             System.exit(-1);
         }
+        //return a sound
         return sound;
     }
-
+//this a class 
     public static String getText(String path) {
 
         StringBuilder builder = new StringBuilder();
-
+this is a exception
         try {
             InputStream byteStream = getResourceAsStream(path);
             InputStreamReader txtStream = new InputStreamReader(byteStream, "ISO-8859-1");

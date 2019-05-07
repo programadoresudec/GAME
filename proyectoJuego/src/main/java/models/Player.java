@@ -11,43 +11,55 @@ public class Player
     /**
      * @return the name
      */
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 
     /**
      * @param name the name to set
      */
-    public void setName(String name) {
+    public void setName(String name)
+    {
         this.name = name;
     }
 
     /**
      * @return the country
      */
-    public String getCountry() {
+    public String getCountry()
+    {
         return country;
     }
 
     /**
      * @param country the country to set
      */
-    public void setCountry(String country) {
+    public void setCountry(String country) 
+    {
         this.country = country;
     }
 
     /**
      * @return the score
      */
-    public int getScore() {
+    public int getScore()
+    {
         return score;
     }
 
     /**
      * @param score the score to set
      */
-    public void setScore(int score) {
+    public void setScore(int score) 
+    {
         this.score = score;
     }
-   
+
+    @Override
+    public String toString() 
+    {
+        return "\nName: " + name + "\nCountry:" + country + "\nScore:" + score;
+    }
+    
 }

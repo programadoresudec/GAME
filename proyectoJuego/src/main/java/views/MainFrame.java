@@ -39,6 +39,7 @@ public class MainFrame extends JFrame implements GameListener
             public void mousePressed(MouseEvent e)
             {
                 Point hitPoint = e.getPoint();
+                //entry to the game panel.
                 if (hitPoint.x > 120 && hitPoint.x < 430 && hitPoint.y > 440 && hitPoint.y < 490) 
                 {
                     gamePanel = new Game();
@@ -46,6 +47,7 @@ public class MainFrame extends JFrame implements GameListener
                     gamePanel.addListener(MainFrame.this);
                     swapPanel(menuPanel, gamePanel);
                 } 
+                // Exit to the Game.
                 else if (hitPoint.x > 90 && hitPoint.x < 385 && hitPoint.y > 587 && hitPoint.y < 645) 
                 {
                     System.exit(0);
@@ -63,10 +65,10 @@ public class MainFrame extends JFrame implements GameListener
     }
     
     // method to exchange the panel
-    private void swapPanel(JPanel pFrom, JPanel pTo) 
+    private void swapPanel(JPanel panelCurrent, JPanel panelNext) 
     {
-        pTo.setVisible(true);
-        pFrom.setVisible(false);
+        panelNext.setVisible(true);
+        panelCurrent.setVisible(false);
     }
 }
 

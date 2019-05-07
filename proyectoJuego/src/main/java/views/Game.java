@@ -9,7 +9,9 @@ import assets.Resources;
 import java.awt.image.*;
 public class Game extends JPanel implements MouseMotionListener
 {
-     private static final Cursor CURSOR = Toolkit.getDefaultToolkit().createCustomCursor(new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB), new Point(), "null");
+    
+     private static final Cursor CURSOR = Toolkit.getDefaultToolkit().createCustomCursor(
+             new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB), new Point(), "null");
      private BufferedImage backgroundImg;
      private BufferedImage cursorImg;
      private Rectangle cursorRectangle;
@@ -88,7 +90,7 @@ public class Game extends JPanel implements MouseMotionListener
            System.out.println("Comenzando "+nombreHilo);
             try
             {
-                for (int contar=0; contar<10; contar++) 
+                for (int contar=0; contar<1000; contar++) 
                 {
                     Thread.sleep(400);
                     System.out.println("En "+nombreHilo+", el recuento "+contar);

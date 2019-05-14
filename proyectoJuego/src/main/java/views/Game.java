@@ -34,7 +34,7 @@ public class Game extends JPanel implements MouseMotionListener
         this.addMouseMotionListener(this);
         Resources.getSound("/sounds/gameIntro.wav").play();
         backgroundImg = Resources.getImage("/images/gameBackground.png");
-        cursorImg = Resources.getImage("/images/gunsight.png");
+        cursorImg = Resources.getImage("/images/mira.png");
         cursorRectangle = new Rectangle();
         cursorRectangle.setSize(cursorImg.getWidth(null), cursorImg.getHeight(null));
         cursorRectangle.setLocation(-cursorImg.getWidth(null), -cursorImg.getHeight(null));

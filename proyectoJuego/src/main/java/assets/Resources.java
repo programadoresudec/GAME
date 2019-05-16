@@ -23,9 +23,6 @@ public class Resources
 
     static Class source = Resources.class;
 
-
-    
-
 //this is a builder
     private  Resources() {
 

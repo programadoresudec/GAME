@@ -9,17 +9,18 @@ import assets.Resources;
 import java.awt.image.*;
 public class Game extends JPanel implements MouseMotionListener
 {
-    
+    // change of image in the cursor
      private static final Cursor CURSOR = Toolkit.getDefaultToolkit().createCustomCursor(
              new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB), new Point(), "null");
+     // BufferendImaged It is used to handle and manipulate the image data. 
      private BufferedImage backgroundImg;
      private BufferedImage cursorImg;
      private Rectangle cursorRectangle;
      private GameThread gameThread;
+     private Sound shootSound;
      private GameListener gameListener;
      private boolean isGameFinished;
      private String nombreHilo;
-     private BufferedImage gameResultImage;
     
     public Game() 
     {
@@ -32,13 +33,22 @@ public class Game extends JPanel implements MouseMotionListener
         this.setLayout(null);
         this.setCursor(CURSOR);
         this.addMouseMotionListener(this);
-        Resources.getSound("/sounds/gameIntro.wav").play();
+        Resources.getSound("/sounds/PlayGame.wav").play();
         backgroundImg = Resources.getImage("/images/gameBackground.png");
         cursorImg = Resources.getImage("/images/mira.png");
+        shootSound = Resources.getSound("/sounds/SniperRifle.wav");
         cursorRectangle = new Rectangle();
         cursorRectangle.setSize(cursorImg.getWidth(null), cursorImg.getHeight(null));
         cursorRectangle.setLocation(-cursorImg.getWidth(null), -cursorImg.getHeight(null));
         gameThread = new GameThread();
+         this.addMouseListener(new MouseAdapter() 
+         {
+            @Override
+            public void mousePressed(MouseEvent e)
+            {
+                shootSound.play();
+            }
+        });
     }
     
     

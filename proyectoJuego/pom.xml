@@ -12,9 +12,10 @@
         <maven.compiler.target>11</maven.compiler.target>
     </properties>
     <build>
-        <finalName>DUCK</finalName>
+        <!--NAME OF THE GAME IN Jar -->
+        <finalName>Shoot Programming</finalName>
         <plugins>        
-            <plugin>
+            <plugin>    
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-eclipse-plugin</artifactId>
                 <version>2.9</version>
@@ -40,7 +41,7 @@
                 <configuration>            
                     <descriptorRefs>
                         <!--Sufijo que se le agregara al fichero JAR ejecutable -->
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                        <descriptorRef>version-1.0</descriptorRef>
                     </descriptorRefs>           
                     <archive>
                         <manifest>
@@ -50,7 +51,7 @@
                         <manifestEntries>
                             <!--  tomado de: https://stackoverflow.com/questions/9392685/splash-screen-in-java-maven-project-->
                             <!--Splash Screen se pone la ruta de other Sources -->
-                            <SplashScreen-Image>images/icon.jpg</SplashScreen-Image>
+                            <SplashScreen-Image>images/splashScreen.png</SplashScreen-Image>
                         </manifestEntries>
                     </archive>
                 </configuration>

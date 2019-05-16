@@ -8,8 +8,11 @@ import assets.Resources;
 public class MainFrame extends JFrame implements GameListener 
 {
     private static final Dimension FRAMESIZE = new Dimension(1280, 720);
+    private static final String ESCTOGOBACK = "pressEscape";
+
     private Menu menuPanel;
     private Game gamePanel;
+    private GoBackToMenu goBackAction;
     public MainFrame()
     {
         initFrame();
@@ -32,6 +35,7 @@ public class MainFrame extends JFrame implements GameListener
         this.setSize(FRAMESIZE);
         this.setLocationRelativeTo(null);
         menuPanel = new Menu();
+        goBackAction = new GoBackToMenu();
         initPanel(menuPanel, true);
         menuPanel.addMouseListener(new MouseAdapter() 
         {
@@ -45,6 +49,10 @@ public class MainFrame extends JFrame implements GameListener
                     gamePanel = new Game();
                     initPanel(gamePanel, false);
                     gamePanel.addListener(MainFrame.this);
+                    goBackAction.setPanel(gamePanel);
+                    gamePanel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).
+                            put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), ESCTOGOBACK);
+                    gamePanel.getActionMap().put(ESCTOGOBACK, goBackAction);
                     swapPanel(menuPanel, gamePanel);
                 } 
                 // Exit to the Game.
@@ -69,6 +77,40 @@ public class MainFrame extends JFrame implements GameListener
     {
         panelNext.setVisible(true);
         panelCurrent.setVisible(false);
+    }
+    
+     public class GoBackToMenu extends AbstractAction
+    {
+
+        private JPanel panel;
+
+        public GoBackToMenu() 
+        {
+        }
+        public void setPanel(JPanel pPanel)
+        {
+            this.panel = pPanel;
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e) 
+        {
+            if (panel != null) {
+                if (panel.equals(gamePanel)) 
+                {
+                    swapPanel(panel, menuPanel);
+                    panel.invalidate();
+                    panel.removeAll();
+                    MainFrame.this.getContentPane().remove(panel);
+                    MainFrame.this.invalidate();
+                    MainFrame.this.validate();
+                } 
+//                else if (panel.equals(instructionsPanel)) 
+//                {
+//                    swapPanel(panel, menuPanel);
+//                }
+            }
+        }
     }
 }
 

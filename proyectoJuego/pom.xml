@@ -41,7 +41,7 @@
                 <configuration>            
                     <descriptorRefs>
                         <!--Sufijo que se le agregara al fichero JAR ejecutable -->
-                        <descriptorRef>version-1.0</descriptorRef>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>           
                     <archive>
                         <manifest>

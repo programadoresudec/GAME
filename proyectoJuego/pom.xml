@@ -50,7 +50,7 @@
                         <manifestEntries>
                             <!--  tomado de: https://stackoverflow.com/questions/9392685/splash-screen-in-java-maven-project-->
                             <!--Splash Screen se pone la ruta de other Sources -->
-                            <SplashScreen-Image>images/icon.png</SplashScreen-Image>
+                            <SplashScreen-Image>images/icon.jpg</SplashScreen-Image>
                         </manifestEntries>
                     </archive>
                 </configuration>

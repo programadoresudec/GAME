@@ -7,7 +7,63 @@
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+         <!--Versión de JDK con la cual se ha construido el proyecto 11 significa que se utilizó Java 11 -->
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
     </properties>
+    <build>
+        <finalName>DUCK</finalName>
+        <plugins>        
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <version>2.9</version>
+                <configuration>
+                    <downloadSources>true</downloadSources>
+                    <downloadJavadocs>false</downloadJavadocs>
+                </configuration>
+            </plugin>           
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <!--Versión de JDK con la cual se ha construido el proyecto 11 significa que se utilizó Java 11 -->
+                    <source>11</source>
+                    <target>11</target>
+                </configuration>
+            </plugin>    
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.4.1</version>
+                <configuration>            
+                    <descriptorRefs>
+                        <!--Sufijo que se le agregara al fichero JAR ejecutable -->
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>           
+                    <archive>
+                        <manifest>
+                    <!--Aqui se establece el nombre de la clase principal -->
+                            <mainClass>controllers.Main</mainClass>
+                        </manifest>
+                        <manifestEntries>
+                            <!--  tomado de: https://stackoverflow.com/questions/9392685/splash-screen-in-java-maven-project-->
+                            <!--Splash Screen se pone la ruta de other Sources -->
+                            <SplashScreen-Image>images/icon.png</SplashScreen-Image>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase> 
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>

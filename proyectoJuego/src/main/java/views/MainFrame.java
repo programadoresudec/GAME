@@ -24,7 +24,7 @@ public class MainFrame extends JFrame implements GameListener
     private void initFrame()
     {
         this.setUndecorated(true);
-        this.setIconImage(Resources.getImage("/images/iconPato.jpg"));
+        this.setIconImage(Resources.getImage("/images/icon.jpg"));
         Resources.getSound("/sounds/menuIntro.wav").play();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);

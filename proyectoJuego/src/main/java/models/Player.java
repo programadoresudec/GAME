@@ -14,6 +14,12 @@ public class Player
         this.country = country;
     }
 
+    public Player(int score) {
+        this.score = score;
+    }
+    
+    
+
     /**
      * @return the name
      */

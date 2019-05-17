@@ -2,6 +2,8 @@
 package controllers;
 // Importanmos con * para llamar todas las librerias dependiendo si es un swing o awt o awt.event.
 import java.awt.event.*;
+// se importa libreria io para utilizar ficheros.
+import java.io.*;
 import javax.swing.*;
 //Se importan las librerías de java.util.* donde se concentran la mayor parte de las Clases del "Collection Framework". 
 import java.util.*;
@@ -32,7 +34,8 @@ public class PlayerController implements ActionListener
        if(e.getSource() == view.btnRegister)
        {
            // we send parameters to the add method to save what is written in the text boxes.
-           addData(view.inputName.getText(),view.inputCountry.getText()); 
+           addData(view.inputName.getText(),view.inputCountry.getText());
+           saveFile();
        }
     }
 
@@ -56,5 +59,51 @@ public class PlayerController implements ActionListener
             }
         }
     }
-    
+     public void saveFile()
+    {
+         BufferedWriter bw = null;
+         FileWriter fw = null;
+         try 
+         {
+            System.out.println("Escribiendo en archivo");
+            File file = new File("src/main/resources/file/jugadores.txt");
+            // If the file does not exist, it is created!
+            if (!file.exists())
+            {
+                file.createNewFile();
+            }
+            // flag true, Indicates attach information to the file.
+            fw = new FileWriter(file.getAbsoluteFile(), true);
+            bw = new BufferedWriter(fw);
+            for(Player elemento: listPlayer)
+                {
+                    bw.write("\n" + elemento.toString());
+                }
+            System.out.println("información agregada!");
+         } 
+         catch (IOException e)
+         {
+             e.printStackTrace();
+         } 
+         finally
+         {
+             try 
+             {
+                //Close instances of FileWriter and BufferedWriter
+                if (bw != null)
+                {
+                    bw.close();
+                }
+                    
+                if (fw != null)
+                {
+                    fw.close();
+                }  
+             }
+             catch (IOException ex)
+             {
+                 ex.printStackTrace();
+             }
+         } 
+    }
 }

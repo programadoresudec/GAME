@@ -38,17 +38,11 @@ public class MainFrame extends JFrame implements GameListener
         this.pack();
         this.setSize(FRAMESIZE);
         this.setLocationRelativeTo(null);
-        
         menuPanel = new Menu();
         initPanel(menuPanel, true);
-        
-        instructionsPanel = new Instructions();
-        initPanel(instructionsPanel, false);
-        
         playerPanel = new PlayerView();
         initPanel(playerPanel, false);
         goBack = new GoBackToMenu();
-        
         menuPanel.addMouseListener(new MouseAdapter() 
         {
             @Override
@@ -103,6 +97,8 @@ public class MainFrame extends JFrame implements GameListener
                 // valid to enter the instruction panel
                 else if (hitPoint.x > 41 && hitPoint.x < 556 && hitPoint.y > 518 && hitPoint.y < 545) 
                 {
+                    instructionsPanel = new Instructions();
+                    initPanel(instructionsPanel, true);
                     System.out.println("Entrando a instrucciones del juego...");
                      // it's called the setPanel method of the GoBackToMenu class.
                      goBack.setPanel(instructionsPanel);

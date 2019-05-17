@@ -19,7 +19,7 @@ public class Instructions extends JPanel
     }
     private void init()
     {
-         this.setLayout(null);
+        this.setLayout(null);
         //we add image
         backgroundImg = Resources.getImage("/images/instructions.png");
         this.setCursor(HAND_CURSOR);

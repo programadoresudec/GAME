@@ -26,7 +26,7 @@ public class PlayerView extends JPanel
         inputName.setBounds(new Rectangle(560, 240, 350, 30));
         inputCountry.setBounds(new Rectangle(560, 405, 350, 30));
         btnRegister.setContentAreaFilled(false);
-        btnRegister.setBounds(new Rectangle(4800, 580 , 300, 80));
+        btnRegister.setBounds(new Rectangle(480, 580 , 300, 80));
         add(inputName);
         add(inputCountry);
         add(btnRegister);

@@ -3,22 +3,24 @@ import assets.Resources;
 import java.awt.*;
 import java.awt.image.*;
 import javax.swing.*;
-//this is class de menu with an inheritance jpanel
-public class Menu extends JPanel
+
+/**
+ */
+public class Player extends JPanel
 {
     private BufferedImage backgroundImg;
-    //this is builder
-    public Menu() 
+    public JTextField inputName, inputCountry;
+    public Player() 
     {
         init();
     }
-    private void init() 
+    private void init()
     {
-        this.setLayout(null);
+         this.setLayout(null);
         //we add image
-        backgroundImg = Resources.getImage("/images/menuBackground.png");
+        backgroundImg = Resources.getImage("/images/DataPlayer.png");
     }
-    //method
+    // method to paint a BufferedImage
     @Override
     protected void paintComponent(Graphics g) 
     {

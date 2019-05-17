@@ -5,17 +5,56 @@ import java.awt.event.*;
 import javax.swing.*;
 //Se importan las librerías de java.util.* donde se concentran la mayor parte de las Clases del "Collection Framework". 
 import java.util.*;
+import models.Player;
+import views.PlayerView;
 
 /**
  *
  * @author LaurayDiego
  */
-public class PlayerController implements ActionListener{
+public class PlayerController implements ActionListener
+{
+    private ArrayList<Player> listPlayer;
+    private PlayerView view;
 
+    public PlayerController(ArrayList<Player> listPlayer, PlayerView view) 
+    {
+        //the objects are matched with the parameters
+        this.listPlayer = listPlayer;
+        this.view = view;
+        // the button is implemented to work.
+        this.view.btnRegister.addActionListener(this);
+    }
+   
     @Override
     public void actionPerformed(ActionEvent e) 
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       if(e.getSource() == view.btnRegister)
+       {
+           // we send parameters to the add method to save what is written in the text boxes.
+           addData(view.inputName.getText(),view.inputCountry.getText()); 
+       }
+    }
+
+    private void addData(String namePlayer, String countryPlayer)
+    {
+       listPlayer.add(new Player(namePlayer, countryPlayer));
+       System.out.println("Se ha agregado el jugador satisfactoriamente.");
+       // it's called the method.
+       cleanBoxes();
+    }
+    // method to clean jtexfield panel.
+    private void cleanBoxes() 
+    {
+        JTextField texBox;
+        for (int i = 0; i < view.getComponentCount(); i++) 
+        {
+            if (view.getComponent(i).getClass().getName().equals("javax.swing.JTextField"))
+            {
+                texBox = (JTextField)view.getComponent(i);
+                texBox.setText("");
+            }
+        }
     }
     
 }

@@ -8,6 +8,12 @@ public class Player
    private String country;
    private int score;
 
+    public Player(String name, String country) 
+    {
+        this.name = name;
+        this.country = country;
+    }
+
     /**
      * @return the name
      */

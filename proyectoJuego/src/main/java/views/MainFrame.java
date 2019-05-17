@@ -12,9 +12,9 @@ public class MainFrame extends JFrame implements GameListener
 
     //Object of some classes.
     private Menu menuPanel;
-    private boolean playerDataEntry = false;
+    private boolean playerDataEntry;
     private Game gamePanel;
-    private Player playerPanel;
+    private PlayerView playerPanel;
     private Instructions instructionsPanel;
     private GoBackToMenu goBack; 
     public MainFrame()
@@ -45,7 +45,7 @@ public class MainFrame extends JFrame implements GameListener
         instructionsPanel = new Instructions();
         initPanel(instructionsPanel, false);
         
-        playerPanel = new Player();
+        playerPanel = new PlayerView();
         initPanel(playerPanel, false);
         goBack = new GoBackToMenu();
         
@@ -54,6 +54,7 @@ public class MainFrame extends JFrame implements GameListener
             @Override
             public void mousePressed(MouseEvent e)
             {
+                playerDataEntry = false;
                 Point hitPoint = e.getPoint();
                 //entry to player data.
                 if (hitPoint.x > 165 && hitPoint.x < 393 && hitPoint.y > 401 && hitPoint.y < 443) 
@@ -64,6 +65,10 @@ public class MainFrame extends JFrame implements GameListener
                     System.out.println("Registrando datos del jugador...");
                     // it's called the setPanel method of the GoBackToMenu class.
                     goBack.setPanel(playerPanel);
+                    //keyboard function to be returned from the panel with the ESC key.
+                    playerPanel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).
+                            put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), ESCTOGOBACK);
+                    playerPanel.getActionMap().put(ESCTOGOBACK, goBack);
                     // it's called the method to swap panel.
                     swapPanel(menuPanel, playerPanel);
                     playerDataEntry = true;  
@@ -159,6 +164,10 @@ public class MainFrame extends JFrame implements GameListener
                     MainFrame.this.validate();
                 } 
                 else if (panel.equals(instructionsPanel)) 
+                {
+                    swapPanel(panel, menuPanel);
+                }
+                else if (panel.equals(playerPanel)) 
                 {
                     swapPanel(panel, menuPanel);
                 }

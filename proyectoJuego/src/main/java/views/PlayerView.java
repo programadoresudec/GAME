@@ -6,19 +6,30 @@ import javax.swing.*;
 
 /**
  */
-public class Player extends JPanel
+public class PlayerView extends JPanel
 {
     private BufferedImage backgroundImg;
     public JTextField inputName, inputCountry;
-    public Player() 
+    public JButton btnRegister;
+    public PlayerView() 
     {
         init();
     }
     private void init()
     {
-         this.setLayout(null);
+        this.setLayout(null);
         //we add image
+        inputName = new JTextField(15);
+        inputCountry = new JTextField(15);
+        btnRegister = new JButton("registrar");
         backgroundImg = Resources.getImage("/images/DataPlayer.png");
+        inputName.setBounds(new Rectangle(560, 240, 350, 30));
+        inputCountry.setBounds(new Rectangle(560, 405, 350, 30));
+        btnRegister.setContentAreaFilled(false);
+        btnRegister.setBounds(new Rectangle(620, 620, 100, 30));
+        add(inputName);
+        add(inputCountry);
+        add(btnRegister);
     }
     // method to paint a BufferedImage
     @Override

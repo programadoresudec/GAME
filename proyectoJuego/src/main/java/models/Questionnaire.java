@@ -13,14 +13,9 @@ public class Questionnaire extends Player
     {
         int counter;
         counter = score;
-        if (counter<=2)
-        {
+        if (counter<=2){
             qs.easy();
-        }else
-        {
-            qs.hard();
-        }
-        
+        }//if
     }//apliQuestionnaire
     
 }//Questionnaire

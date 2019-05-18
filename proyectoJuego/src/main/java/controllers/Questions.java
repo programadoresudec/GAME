@@ -13,7 +13,7 @@ public class Questions {
      
         while (bandera == true){
             Random aleatorio = new Random();
-            option = 1+ aleatorio.nextInt(5);
+            option = 1+ aleatorio.nextInt(10);
         
         switch(option){
             case 1:
@@ -54,7 +54,7 @@ public class Questions {
                         + "b. Mismo método diferentes atributos\n"
                         + "c. Mismo método diferente implementación\n"
                         + "d. Ninguna de las anteriores\n");
-                if ("C".equals(answer)) {
+                if ("c".equals(answer)) {
                     punctuation ++;
                     bandera= true;
                     JOptionPane.showMessageDialog(null, "Respuesta correcta puntuación " + punctuation + "puntos" );
@@ -96,21 +96,7 @@ public class Questions {
                     bandera = false;
                 }
                 break;
-                
-                
-        }//case
-        }//while
-    }//faciles
-    
-    public void hard(){
-        
-       
-        while (bandera == true){
-            Random aleatorio = new Random();
-        option = 1 + aleatorio.nextInt(5);
-        
-        switch(option){
-            case 1:
+            case 6:
                 answer="   ";
                 JOptionPane.showMessageDialog(null, "Complete el siguiente metodo\n"
                         + "Public double miltiplicacion(){\n"
@@ -132,7 +118,7 @@ public class Questions {
                     bandera = false;
                 }
                 break;
-            case 2:
+            case 7:
                 answer = JOptionPane.showInputDialog("Corrija el error\n "
                         + "public void tamaño(){\n"
                         + "\t\tint largo, ancho tamaño;\n"
@@ -152,7 +138,7 @@ public class Questions {
                     bandera = false;
                 }
                 break;
-            case 3:
+            case 8:
                 answer = JOptionPane.showInputDialog("Escriba la signatura para el siguiente metodo "
                         + "que retorna el area de un circulo\n"
                         + "(){\n"
@@ -173,7 +159,7 @@ public class Questions {
                     bandera = false;
                 }
                 break;
-            case 4:
+            case 9:
                 answer = JOptionPane.showInputDialog("¿Cual es el interprete de Java? \n ");
                 if ("java".equalsIgnoreCase(answer)) {
                     punctuation ++;
@@ -185,7 +171,7 @@ public class Questions {
                     bandera = false;
                 }
                 break;
-            case 5:
+            case 10:
                 answer = JOptionPane.showInputDialog("¿Cual es el interprete de java?\n ");
                 if ("javaC".equalsIgnoreCase(answer)) {
                     punctuation ++;
@@ -198,11 +184,7 @@ public class Questions {
                 }
                 break;
                 
-                
-            }//case
+        }//case
         }//while
-    }//deficiles
-    
-    
-    
+    }//faciles
 }//Questions

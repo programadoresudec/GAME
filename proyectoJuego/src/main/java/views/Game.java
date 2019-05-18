@@ -7,8 +7,10 @@ import assets.SoundException;
 import controllers.GameListener;
 import assets.Resources;
 import java.awt.image.*;
+import models.Questionnaire;
 public class Game extends JPanel implements MouseMotionListener
 {
+    Questionnaire qs = new Questionnaire();
     // change of image in the cursor
      private static final Cursor CURSOR = Toolkit.getDefaultToolkit().createCustomCursor(
              new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB), new Point(), "null");
@@ -47,6 +49,7 @@ public class Game extends JPanel implements MouseMotionListener
             public void mousePressed(MouseEvent e)
             {
                 shootSound.play();
+                qs.apliQuestionnaire();
             }
         });
     }

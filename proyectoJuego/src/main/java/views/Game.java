@@ -7,6 +7,7 @@ import assets.SoundException;
 import controllers.GameListener;
 import assets.Resources;
 import controllers.DuckController;
+import controllers.Questions;
 import java.awt.image.*;
 import models.Duck;
 public class Game extends JPanel implements MouseMotionListener
@@ -26,7 +27,7 @@ public class Game extends JPanel implements MouseMotionListener
      private GameListener gameListener;
      private boolean isGameFinished;
      private String nombreHilo;
-    
+     private Questions question;
     public Game() 
     {
         initPanel();
@@ -35,6 +36,7 @@ public class Game extends JPanel implements MouseMotionListener
    
     private void initPanel() 
     {
+        question = new Questions();
         this.setLayout(null);
         this.setCursor(CURSOR);
         this.addMouseMotionListener(this);
@@ -53,7 +55,19 @@ public class Game extends JPanel implements MouseMotionListener
             public void mousePressed(MouseEvent e)
             {
                 shootSound.play();
+                Point hitPoint = e.getPoint();
+                if (duck != null) 
+                {
+                    hitPoint.x -= duck.getX();
+                    hitPoint.y -= duck.getY();
+                    if (contains(duckController.getCurrentImage(), hitPoint.x, hitPoint.y)) 
+                    {
+                        duckController.theDuckWasHit(true);
+                        question.easy();
+                    }
+                }
             }
+
         });
     }
     
@@ -90,12 +104,24 @@ public class Game extends JPanel implements MouseMotionListener
         cursorRectangle.y = e.getPoint().y - cursorRectangle.height / 2;
         repaint();
     }
-
-    public void setDuckCurrentImage(BufferedImage pImage) {
+    
+    public boolean contains(BufferedImage image, int x, int y) 
+    {
+        if (x < 0 || y < 0 || x >= image.getWidth() || y >= image.getHeight())
+        {
+            return false;
+        }
+        Color pixel = new Color(image.getRGB(x, y), true);
+        return pixel.getAlpha() > 128;
+    }
+    
+    public void setDuckCurrentImage(BufferedImage pImage) 
+    {
         this.duckCurrentImage = pImage;
     }
     
-      public void notifyGameStatus() {
+      public void notifyGameStatus() 
+      {
         if (isGameFinished) {
             gameListener.gameIsFinished();
         }
@@ -124,6 +150,7 @@ public class Game extends JPanel implements MouseMotionListener
                  duck = new Duck();
                  duckController.setDuck(duck);
                  duckController.getDuckAnimation().start();
+                 
             }catch (InterruptedException exc)
             {
                 System.out.println(nombreHilo + "Interrumpido.");

@@ -8,8 +8,12 @@ public class Questions {
     boolean bandera=true;
     String answer;
     int punctuation=0;
+
+    public Questions() {
+    }
     
-    public void easy(){
+    public void easy()
+    {
      
         while (bandera == true){
             Random aleatorio = new Random();

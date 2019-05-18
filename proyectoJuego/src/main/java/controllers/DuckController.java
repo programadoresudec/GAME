@@ -2,7 +2,6 @@ package controllers;
 import assets.*;
 import views.Game;
 import models.Duck;
-
 import java.awt.image.BufferedImage;
 
 /**
@@ -29,6 +28,7 @@ public class DuckController {
     private int y;
     private boolean isDuckVisible;
     private boolean wasDuckHit;
+    private boolean isDead;
     
     private DuckController() 
     {
@@ -39,6 +39,7 @@ public class DuckController {
         yDirection = DOWN;
         isDuckVisible = false;
         wasDuckHit = false;
+        isDead = false;
         x = 0;
         y = 0;
     }
@@ -139,12 +140,20 @@ public class DuckController {
     }
 
  
-
+     private void dead() 
+    {
+      currentImage = Resources.getImage("/images/duckDead.png");
+    }
     public DuckAnimation getDuckAnimation()
     {
         return duckAnimation;
     }
-
+    
+    public boolean isDead() 
+    {
+        return isDead;
+    }
+    
     public class DuckAnimation implements Runnable
     {
 
@@ -183,6 +192,7 @@ public class DuckController {
             }
             try 
             {
+                dead();
                 panel.setDuckCurrentImage(currentImage);
                 panel.repaint();
                 Thread.sleep(500);
@@ -192,6 +202,7 @@ public class DuckController {
                     panel.setDuckCurrentImage(currentImage);
                     panel.repaint();
                 }
+                isDead = true;
             } catch (InterruptedException ex)
             {
                 System.out.println("an error occured during duck animation thread");

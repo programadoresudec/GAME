@@ -10,10 +10,7 @@ import java.util.*;
 import models.Player;
 import views.PlayerView;
 
-/**
- *
- * @author LaurayDiego
- */
+
 public class PlayerController implements ActionListener
 {
     private ArrayList<Player> listPlayer;
@@ -107,3 +104,4 @@ public class PlayerController implements ActionListener
          } 
     }
 }
+

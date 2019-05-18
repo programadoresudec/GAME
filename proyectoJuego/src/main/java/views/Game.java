@@ -6,8 +6,14 @@ import assets.Sound;
 import assets.SoundException;
 import controllers.GameListener;
 import assets.Resources;
+import controllers.DuckController;
+import controllers.Questions;
 import java.awt.image.*;
+<<<<<<< HEAD
 import models.Questionnaire;
+=======
+import models.Duck;
+>>>>>>> b37b62943f4413fceeee89c320e8029abb6d8fc6
 public class Game extends JPanel implements MouseMotionListener
 {
     Questionnaire qs = new Questionnaire();
@@ -20,10 +26,13 @@ public class Game extends JPanel implements MouseMotionListener
      private Rectangle cursorRectangle;
      private GameThread gameThread;
      private Sound shootSound;
+     private BufferedImage duckCurrentImage;
+     private DuckController duckController;
+     private Duck duck;
      private GameListener gameListener;
      private boolean isGameFinished;
      private String nombreHilo;
-    
+     private Questions question;
     public Game() 
     {
         initPanel();
@@ -32,11 +41,13 @@ public class Game extends JPanel implements MouseMotionListener
    
     private void initPanel() 
     {
+        question = new Questions();
         this.setLayout(null);
         this.setCursor(CURSOR);
         this.addMouseMotionListener(this);
         Resources.getSound("/sounds/PlayGame.wav").play(10);
         backgroundImg = Resources.getImage("/images/gameBackground.png");
+        duckCurrentImage = Resources.getImage("/images/duckUpRight0.png");
         cursorImg = Resources.getImage("/images/mira.png");
         shootSound = Resources.getSound("/sounds/SniperRifle.wav");
         cursorRectangle = new Rectangle();
@@ -49,8 +60,23 @@ public class Game extends JPanel implements MouseMotionListener
             public void mousePressed(MouseEvent e)
             {
                 shootSound.play();
+<<<<<<< HEAD
                 qs.apliQuestionnaire();
+=======
+                Point hitPoint = e.getPoint();
+                if (duck != null) 
+                {
+                    hitPoint.x -= duck.getX();
+                    hitPoint.y -= duck.getY();
+                    if (contains(duckController.getCurrentImage(), hitPoint.x, hitPoint.y)) 
+                    {
+                        duckController.theDuckWasHit(true);
+                        question.easy();
+                    }
+                }
+>>>>>>> b37b62943f4413fceeee89c320e8029abb6d8fc6
             }
+
         });
     }
     
@@ -69,6 +95,10 @@ public class Game extends JPanel implements MouseMotionListener
 
         g2D.drawImage(backgroundImg, 0, 0, this);
         g2D.drawImage(cursorImg, this.cursorRectangle.x, this.cursorRectangle.y, this);
+        if (duckController.isDuckVisible())
+        {
+            g2D.drawImage(duckCurrentImage, duck.getX(), duck.getY(), this);
+        }
     }
     @Override
     public void mouseDragged(MouseEvent e)
@@ -83,12 +113,35 @@ public class Game extends JPanel implements MouseMotionListener
         cursorRectangle.y = e.getPoint().y - cursorRectangle.height / 2;
         repaint();
     }
-
+    
+    public boolean contains(BufferedImage image, int x, int y) 
+    {
+        if (x < 0 || y < 0 || x >= image.getWidth() || y >= image.getHeight())
+        {
+            return false;
+        }
+        Color pixel = new Color(image.getRGB(x, y), true);
+        return pixel.getAlpha() > 128;
+    }
+    
+    public void setDuckCurrentImage(BufferedImage pImage) 
+    {
+        this.duckCurrentImage = pImage;
+    }
+    
+      public void notifyGameStatus() 
+      {
+        if (isGameFinished) {
+            gameListener.gameIsFinished();
+        }
+    }
     public class GameThread implements Runnable 
     {
         private Thread thread;
         public GameThread()
         {
+            duckController = DuckController.getIstance();
+            duckController.setPanel(Game.this);
         }
         
         public void start() 
@@ -103,11 +156,10 @@ public class Game extends JPanel implements MouseMotionListener
            System.out.println("Comenzando "+nombreHilo);
             try
             {
-                for (int contar=0; contar<1000; contar++) 
-                {
-                    Thread.sleep(400);
-                    System.out.println("En "+nombreHilo+", el recuento "+contar);
-                }
+                 duck = new Duck();
+                 duckController.setDuck(duck);
+                 duckController.getDuckAnimation().start();
+                 
             }catch (InterruptedException exc)
             {
                 System.out.println(nombreHilo + "Interrumpido.");

@@ -17,8 +17,6 @@ public class Player
     public Player(int score) {
         this.score = score;
     }
-    
-    
 
     /**
      * @return the name

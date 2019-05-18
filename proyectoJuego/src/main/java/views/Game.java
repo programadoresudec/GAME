@@ -9,9 +9,14 @@ import assets.Resources;
 import controllers.DuckController;
 import controllers.Questions;
 import java.awt.image.*;
+<<<<<<< HEAD
+import models.Questionnaire;
+=======
 import models.Duck;
+>>>>>>> b37b62943f4413fceeee89c320e8029abb6d8fc6
 public class Game extends JPanel implements MouseMotionListener
 {
+    Questionnaire qs = new Questionnaire();
     // change of image in the cursor
      private static final Cursor CURSOR = Toolkit.getDefaultToolkit().createCustomCursor(
              new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB), new Point(), "null");
@@ -55,6 +60,9 @@ public class Game extends JPanel implements MouseMotionListener
             public void mousePressed(MouseEvent e)
             {
                 shootSound.play();
+<<<<<<< HEAD
+                qs.apliQuestionnaire();
+=======
                 Point hitPoint = e.getPoint();
                 if (duck != null) 
                 {
@@ -66,6 +74,7 @@ public class Game extends JPanel implements MouseMotionListener
                         question.easy();
                     }
                 }
+>>>>>>> b37b62943f4413fceeee89c320e8029abb6d8fc6
             }
 
         });

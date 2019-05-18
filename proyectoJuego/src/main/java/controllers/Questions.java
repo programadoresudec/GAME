@@ -10,8 +10,7 @@ public class Questions {
     int punctuation=0;
     
     public void easy(){
-        
-       
+     
         while (bandera == true){
             Random aleatorio = new Random();
             option = 1+ aleatorio.nextInt(5);
@@ -19,7 +18,7 @@ public class Questions {
         switch(option){
             case 1:
                 answer = JOptionPane.showInputDialog("¿Cual es el unico metodo que se llama igual que la clase?\n "
-                        + "a. Metodo abstrapto\n"
+                        + "a. Metodo abstracto\n"
                         + "b. Constructor\n"
                         + "c. Clase\n"
                         + "d. Abstracción\n");

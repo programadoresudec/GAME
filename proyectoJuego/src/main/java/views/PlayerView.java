@@ -22,19 +22,22 @@ public class PlayerView extends JPanel
         backgroundImg = Resources.getImage("/images/DataPlayer.png");
         inputName = new JTextField(15);
         inputCountry = new JTextField(15);
-        btnRegister = new JButton("jugador");
+        btnRegister = new JButton("");
         inputName.setBounds(new Rectangle(560, 240, 350, 30));
         inputCountry.setBounds(new Rectangle(560, 405, 350, 30));
         btnRegister.setContentAreaFilled(false);
-        btnRegister.setBounds(new Rectangle(480, 580 , 300, 80));
+        btnRegister.setBounds(new Rectangle(490, 580, 300, 80));
         add(inputName);
         add(inputCountry);
         add(btnRegister);
+<<<<<<< HEAD
         btnRegister.setContentAreaFilled(true);
         btnRegister.setBounds(4800, 580 , 300, 80);
         this.add(inputName);
         this.add(inputCountry);
         this.add(btnRegister);
+=======
+>>>>>>> 6e17233fbe57f738aad07c451c97dfcb34cc91b2
     }
     // method to paint a BufferedImage
     @Override

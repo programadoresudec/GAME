@@ -1,9 +1,9 @@
 
 
-Name: Diego Arturo Parra Molina
-Country:colombia
+Name: diego parra
+Country:bogota
 Score:0
 
-Name: anderson rincon sanabria
-Country:colombia
+Name: 
+Country:
 Score:0

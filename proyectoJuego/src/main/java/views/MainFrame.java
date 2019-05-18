@@ -4,6 +4,10 @@ import java.awt.event.*;
 import javax.swing.*;
 import controllers.GameListener;
 import assets.Resources;
+import controllers.PlayerController;
+//Se importan las librerías de java.util.* donde se concentran la mayor parte de las Clases del "Collection Framework". 
+import java.util.*;
+import models.Player;
 
 public class MainFrame extends JFrame implements GameListener 
 {
@@ -11,12 +15,14 @@ public class MainFrame extends JFrame implements GameListener
     private static final String ESCTOGOBACK = "pressEscape";
 
     //Object of some classes.
+    
     private Menu menuPanel;
     private boolean playerDataEntry;
     private Game gamePanel;
     private PlayerView playerPanel;
     private Instructions instructionsPanel;
     private GoBackToMenu goBack; 
+    ArrayList<Player> list = new ArrayList<Player>(); 
     public MainFrame()
     {
         initFrame();
@@ -55,6 +61,8 @@ public class MainFrame extends JFrame implements GameListener
                 {
                     if (playerDataEntry == false) 
                     {
+                    // instance of the class to save the data in arraylist.
+                    PlayerController player = new PlayerController(list, playerPanel); 
                     //entry to the game panel. 
                     System.out.println("Registrando datos del jugador...");
                     // it's called the setPanel method of the GoBackToMenu class.
@@ -73,7 +81,7 @@ public class MainFrame extends JFrame implements GameListener
                         {
                             Point hitPoint = e2.getPoint();
                             // validate if the data entry was already done.
-                            if (playerDataEntry == true && hitPoint.x > 510 && hitPoint.x < 769 && hitPoint.y > 596 && hitPoint.y < 626) 
+                            if (playerDataEntry == true && hitPoint.x > 904 && hitPoint.x < 955 && hitPoint.y > 583 && hitPoint.y < 646) 
                             {
                                 System.out.println("Entrando a juego dispara y programa...");
                                 gamePanel = new Game();

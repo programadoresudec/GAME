@@ -63,7 +63,7 @@ public class PlayerController implements ActionListener
          try 
          {
             System.out.println("Escribiendo en archivo");
-            File file = new File("src/main/resources/file/jugadores.txt");
+            File file = new File("C:/Users/lauraydiego/Desktop/jugadores.txt");
             // If the file does not exist, it is created!
             if (!file.exists())
             {

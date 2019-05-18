@@ -4,8 +4,7 @@ import java.awt.*;
 import java.awt.image.*;
 import javax.swing.*;
 
-/**
- */
+
 public class PlayerView extends JPanel
 {
     private BufferedImage backgroundImg;
@@ -40,3 +39,4 @@ public class PlayerView extends JPanel
         g2D.drawImage(backgroundImg, 0, 0, getParent());
     }
 }
+

@@ -22,6 +22,7 @@ public class MainFrame extends JFrame implements GameListener
     private PlayerView playerPanel;
     private Instructions instructionsPanel;
     private GoBackToMenu goBack; 
+    // the arraylist of the player model is created.
     ArrayList<Player> list = new ArrayList<Player>(); 
     public MainFrame()
     {

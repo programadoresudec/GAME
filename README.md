@@ -23,3 +23,4 @@ Descripción: el juego debe contar con herencias, con implementaciones, funcione
 # Modelo Canvas.
 ![modelo canvas](https://user-images.githubusercontent.com/48141200/57977627-efc7ab80-79c1-11e9-9c4a-7700990de254.PNG)
 # Diagrama de clases.
+![diagrama de clases](https://user-images.githubusercontent.com/48141200/57977845-5c44a980-79c6-11e9-8a0e-94e1f2584dc2.jpeg)
